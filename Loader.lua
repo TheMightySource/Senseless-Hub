@@ -71,5 +71,5 @@ ImageLabel.ScaleType = Enum.ScaleType.Fit
 	Frame:TweenSize(UDim2.new(0, 0,0, 175), "Out", "Quad", 0.6, true)
 Frame:TweenPosition(UDim2.new(0.5, 0,0.404, 0), "Out", "Quad", 0.6, true)
 wait(1.5)
-	loadstring(game:HttpGet(('https://raw.githubusercontent.com/glitchrer/Senseless-Hub/main/Main.lua'),true))()
+	loadstring(game:HttpGet(('https://raw.githubusercontent.com/TheMightySource/Senseless-Hub/main/Main.lua'),true))()
 
