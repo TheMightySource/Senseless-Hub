@@ -4,7 +4,7 @@
 ```lua
 
 _G.Theme = Light -- Light, Dark, Mocha, Aqua, Jester | materiallua.gq
-+
+
 loadstring(game:HttpGet("https://raw.githubusercontent.com/glitchrer/Senseless-Hub/main/Loader.lua"))()
 ```
 
