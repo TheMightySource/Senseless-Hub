@@ -1,6 +1,4 @@
-if isfolder("SenselessHub_55884733") then
 
-	else
 	makefolder("SenselessHub_55884733")
 	writefile("SenselessHub_55884733/!!!DO NOT EDIT ANYTHING HERE!!!","")
 	writefile("SenselessHub_55884733/BackgroundColor","20,20,20")
@@ -9,7 +7,7 @@ if isfolder("SenselessHub_55884733") then
 	writefile("SenselessHub_55884733/RainbowAccentColor","false")
 	writefile("SenselessHub_55884733/OutlineColor","50,50,50")
 	writefile("SenselessHub_55884733/FontColor","255,255,255")
-end
+
 
 
 if identifyexecutor() == "ScriptWare" then
