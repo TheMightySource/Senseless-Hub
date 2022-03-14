@@ -2,7 +2,7 @@ if isfolder("SenselessHub_55884733") then
 
 	else
 	makefolder("SenselessHub_55884733")
-	writefile("SenselessHub_55884733/DO NOT EDIT ANYTHING HERE","")
+	writefile("SenselessHub_55884733/!!!DO NOT EDIT ANYTHING HERE!!!","")
 	writefile("SenselessHub_55884733/BackgroundColor","20,20,20")
 	writefile("SenselessHub_55884733/MainColor","28,28,28")
 	writefile("SenselessHub_55884733/AccentColor","0,85,255")
