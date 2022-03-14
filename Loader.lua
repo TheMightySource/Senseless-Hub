@@ -34,7 +34,7 @@ ImageLabel.ScaleType = Enum.ScaleType.Fit
 	local tweenPart = ImageLabel --the part you want to tween (you can change this)
 	
 	local info = TweenInfo.new(
-		1.2,    
+		1.15,    
 		Enum.EasingStyle.Quad,
 		Enum.EasingDirection.Out,
 		0,
@@ -48,12 +48,12 @@ ImageLabel.ScaleType = Enum.ScaleType.Fit
 	
 	local PartTween = TweenService:Create(tweenPart, info, Goals)
 	PartTween:Play()
-	wait(3.5)
+	wait(2.5)
 	local TweenService = game:GetService("TweenService") --gets service for tween
 	local tweenPart = ImageLabel --the part you want to tween (you can change this)
 	
 	local info = TweenInfo.new(
-		1.2,    
+		1.15,    
 		Enum.EasingStyle.Quad,
 		Enum.EasingDirection.Out,
 		0,
