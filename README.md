@@ -15,9 +15,4 @@ loadstring(game:HttpGet(('https://raw.githubusercontent.com/TheMightySource/Sens
 ## discord.gg/cUBtZcv2wP
 
 ## Games
- * Upvalue Scanner
- * Constant Scanner
- * Script Scanner
- * Module Scanner
- * RemoteSpy
- * ClosureSpy
+ * Super Speed Simulator
