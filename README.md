@@ -3,7 +3,7 @@
 ## Script
 ```lua
 
-_G.Theme = Light -- Light, Dark, Mocha, Aqua, Jester
+_G.SenselessHub_Theme = Light -- Light, Dark, Mocha, Aqua, Jester
 _G.SenselessHub_Style = 2
 _G.SenselessHub_SizeX = 500
 _G.SenselessHub_SizeY = 350
