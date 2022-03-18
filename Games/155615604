@@ -1,0 +1,96 @@
+
+    local Material = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/MaterialLua/master/Module.lua"))()
+    
+    local Material = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/MaterialLua/master/Module.lua"))()
+    local X = Material.Load({
+        Title = "Senseless Hub - "..identifyexecutor(),
+        Style = _G.SenselessHub_Style,
+        SizeX = 500,
+        SizeY = 350,
+        Theme = _G.SenselessHub_Theme,
+    })
+    
+    local Main = X.New({
+        Title = "Main"
+    })
+    
+    local D = Main.Dropdown({
+        Text = "Gun Giver",
+        Callback = function(v)
+            local A_1 = game:GetService("Workspace")["Prison_ITEMS"].giver[v].ITEMPICKUP
+            local Event = game:GetService("Workspace").Remote.ItemHandler
+            Event:InvokeServer(A_1)
+        end,
+        Options = {
+            "M9",
+            "Remington 870",
+            "AK-47"
+        },
+    })
+    
+
+    
+        local B = Main.Toggle({
+        Text = "Kill Aura",
+        Callback = function(Value)
+            if Value == true then
+            	mainRemotes = game.ReplicatedStorage
+meleeRemote = mainRemotes['meleeEvent']
+            	
+            	getgenv().SenselessKillAura = true;
+while wait() do
+if getgenv().SenselessKillAura== true then
+for _, plr in pairs (game:GetService('Players'):GetChildren()) do
+if plr.Name ~= game.Players.LocalPlayer.Name then
+meleeRemote:FireServer(plr)
+end
+end
+end
+end
+        else
+getgenv().SenselessKillAura = false;
+        end
+        end,
+        Enabled = false
+    })
+    
+    local A = Main.Button({
+        Text = "Remove Doors",
+        Callback = function()
+            Workspace.Prison_Cellblock.doors:Destroy()
+                
+            for i,v in pairs(workspace:GetChildren())do
+                    if v.Name == "Doors" then
+                v:Destroy()
+            end
+    end
+        end,
+    })
+    
+        local A = Main.Button({
+        Text = "Admin Commands",
+        Callback = function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/XTheMasterX/Scripts/Main/PrisonLife'),true))()
+        end,
+    })
+    
+    
+    local C = Main.Slider({
+        Text = "Walk Speed",
+        Callback = function(Value)
+            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+        end,
+        Min = 16,
+        Max = 400,
+        Def = game.Players.LocalPlayer.Character.Humanoid.WalkSpeed
+    })
+    
+    local C = Main.Slider({
+        Text = "Jump Power",
+        Callback = function(Value)
+            game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+        end,
+        Min =  50,
+        Max = 400,
+        Def = game.Players.LocalPlayer.Character.Humanoid.JumpPower
+    })
