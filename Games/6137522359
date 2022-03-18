@@ -135,12 +135,10 @@
                 getgenv().AutoOrbs = true;
                 while wait() do
                 if getgenv().AutoOrbs == true then        
-                local HGWS = game.Workspace.Map.Orbs:GetChildren()
-                local RandomTrack = HGWS[math.random(1,#HGWS)]
                 local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
                 local humanoid = game.Players.LocalPlayer.Character.Humanoid
                 humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
-                pl.CFrame = game.Workspace.Map.Orbs:FindFirstChild(RandomTrack.Name).Main.CFrame
+                pl.CFrame = game.Workspace.Map.Orbs:FindFirstChild("RedOrb").Main.CFrame
                     
             end
                     end
