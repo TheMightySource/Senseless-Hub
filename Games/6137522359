@@ -15,7 +15,7 @@
         Style = _G.SenselessHub_Style,
         SizeX = _G.SenselessHub_SizeX,
         SizeY = _G.SenselessHub_SizeY,
-        Theme = _G.SenselessHub_Theme ,
+        Theme = _G.SenselessHub_Theme,
             ColorOverrides = {
         MainFrame = Color3.fromRGB(_G.SenselessHub_ColorOverrideMainFrame)
     }
