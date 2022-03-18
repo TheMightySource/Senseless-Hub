@@ -16,9 +16,6 @@
         SizeX = 500,
         SizeY = 350,
         Theme = _G.SenselessHub_Theme,
-            ColorOverrides = {
-        MainFrame = Color3.fromRGB(_G.SenselessHub_ColorOverrideMainFrame)
-    }
     })
     
     local Y = X.New({
