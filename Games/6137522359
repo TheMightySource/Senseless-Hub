@@ -1,1 +1,211 @@
 -- https://www.roblox.com/games/6137522359/Super-Speed-Simulator
+
+    
+    if game.Workspace.Map:FindFirstChild("AntiTeleport") then
+        game.Workspace.Map.AntiTeleport:Destroy()
+    end
+    local Material = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/MaterialLua/master/Module.lua"))()
+    getgenv().AutoLift = false;
+    getgenv().AutoHatchEgg = false;
+    getgenv().AutoRace = false;
+    getgenv().AutoRebirth = false;
+    getgenv().AutoOrbs = false;
+    local X = Material.Load({
+        Title = "Senseless Hub - "..identifyexecutor(),
+        Style = _G.SenselessHub_Style,
+        SizeX = _G.SenselessHub_SizeX,
+        SizeY = __G.SenselessHub_SizeY,
+        Theme = _G.SenselessHub_Theme ,
+            ColorOverrides = {
+        MainFrame = Color3.fromRGB(_G.SenselessHub_ColorOverrideMainFrame)
+    }
+    })
+    
+    local Y = X.New({
+        Title = "Auto Farm"
+    })
+    
+    local B = Y.Toggle({
+        Text = "Auto Lift",
+        Callback = function(Value)
+            if Value == true then
+                getgenv().AutoLift = true;
+                while wait(0.1) do
+                    if getgenv().AutoLift == true then
+                               local Event = game:GetService("ReplicatedStorage").Remotes.Lift;
+                                Event:FireServer();
+                end
+                end
+                else
+                    getgenv().AutoLift = false;
+                end
+        end,
+        Enabled = false
+    })
+    
+    local AutoRebirth = Y.Toggle({
+        Text = "Auto Rebirth",
+        Callback = function(Value)
+            
+            if Value == true then
+                getgenv().AutoRebirth = true;
+                while wait(0.75) do
+                if getgenv().AutoRebirth == true then
+    local Event = game:GetService("ReplicatedStorage").Remotes.Rebirth
+    Event:InvokeServer()
+    
+            end
+                    end
+                else
+                    getgenv().AutoRebirth = false;
+                end
+        end,
+        Enabled = false
+    })
+
+    local AutoRace = Y.Toggle({
+        Text = "Auto Win Race",
+        Callback = function(Value)
+            
+            if Value == true then
+                getgenv().AutoRace = true;
+                while wait(1) do
+                if getgenv().AutoRace == true then
+                 if game.Workspace.Map.RaceMap:FindFirstChild("Forest") then
+               game:GetService("ReplicatedStorage").Remotes.AcceptRacePrompt:FireServer()
+               game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-741, 8, -80)
+               wait(1)
+    end
+     
+            end
+                    end
+                else
+                    getgenv().AutoRace = false;
+                end
+        end,
+        Enabled = false
+    
+    })
+    
+    local H = Y.TextField({
+    Text = "Egg",
+    Callback = function(Value)
+        _G.AutoHatchEgg = Value
+    end,
+      Menu = {
+        Information = function(self)
+            X.Banner({
+                Text = "Do not add Egg at the end of the name. This is for auto hatching egg, insert the name of the egg and toggle on Auto Hatch Egg."
+            })
+        end
+    }
+})
+    
+    local AutoEgg = Y.Toggle({
+        Text = "Auto Hatch Egg",
+        Callback = function(Value)
+            
+            if Value == true then
+                getgenv().AutoHatch = true;
+                while wait() do
+                if getgenv().AutoHatch == true then
+                    
+                    
+                local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+                local humanoid = game.Players.LocalPlayer.Character.Humanoid
+                humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+                wait(0.1)
+                pl.CFrame = game.Workspace.Map.Eggs:FindFirstChild(_G.AutoHatchEgg).Main.Outline.CFrame
+                    
+            local A_1 = _G.AutoHatchEgg
+            local A_2 = "Single"
+            local Event = game:GetService("ReplicatedStorage").Remotes.OpenEgg
+            Event:InvokeServer(A_1, A_2)
+            end
+                    end
+                else
+                    getgenv().AutoHatch = false;
+                end
+        end,
+        Enabled = false
+    })
+    
+    local AutoOrbs = Y.Toggle({
+        Text = "Auto Orbs",
+        Callback = function(Value)
+            
+            if Value == true then
+                getgenv().AutoOrbs = true;
+                while wait() do
+                if getgenv().AutoOrbs == true then        
+                local HGWS = game.Workspace.Map.Orbs:GetChildren()
+                local RandomTrack = HGWS[math.random(1,#HGWS)]
+                local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+                local humanoid = game.Players.LocalPlayer.Character.Humanoid
+                humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+                pl.CFrame = game.Workspace.Map.Orbs:FindFirstChild(RandomTrack.Name).Main.CFrame
+                    
+            end
+                    end
+                else
+                    getgenv().AutoOrbs = false;
+                end
+        end,
+        Enabled = false
+    })
+    
+        local AntiAFK = Y.Toggle({
+        Text = "Anti AFK",
+        Callback = function(Value)
+            
+            if Value == true then
+                getgenv().AntiAFK = true;
+                local vu = game:GetService("VirtualUser")
+                game:GetService("Players").LocalPlayer.Idled:connect(function()
+                if getgenv().AntiAFK == true then        
+      vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+   wait(1)
+   vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+                    
+            end
+                    end)
+                else
+                    getgenv().AutoOrbs = false;
+                end
+        end,
+        Enabled = false
+    })
+    
+    
+    local Teleports = X.New({
+        Title = "Teleport"
+    })
+    
+    local Worlds = Teleports.Dropdown({
+        Text = "Worlds",
+        Callback = function(Value)
+                local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+                local humanoid = game.Players.LocalPlayer.Character.Humanoid
+                humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+                wait(0.1)
+                pl.CFrame = game.Workspace.Map.TeleportLocations:FindFirstChild(Value).CFrame
+        end,
+        Options = {
+            "Forest",
+            "Snow",
+            "Desert",
+            "Candyland",
+            "Beach",
+            "Volcano",
+            "Sky",
+            "Racetrack",
+            "Moon",
+            "VIP World"
+        },
+    })
+    
+      Menu = {
+            X.Banner({
+                Text = "Successfully loaded Senseless Hub for Super Speed Simulator"
+            })
+    }
