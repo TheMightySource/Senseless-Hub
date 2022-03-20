@@ -12,10 +12,10 @@
     getgenv().AutoOrbs = false;
     local X = Material.Load({
         Title = "Senseless Hub - "..identifyexecutor(),
-        Style = _G.SenselessHub_Style,
+        Style = getgenv().SenselessHub_Style,
         SizeX = 500,
         SizeY = 350,
-        Theme = _G.SenselessHub_Theme,
+        Theme = getgenv().SenselessHub_Theme,
     })
     
     local Y = X.New({
