@@ -1,0 +1,255 @@
+
+
+local Material = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/MaterialLua/master/Module.lua"))()
+
+    local X = Material.Load({
+        Title = "Senseless Hub - "..identifyexecutor(),
+        Style = getgenv().SenselessHub_Style,
+        SizeX = 500,
+        SizeY = 350,
+        Theme = getgenv().SenselessHub_Theme,
+    })
+
+local Y = X.New({
+    Title = "Main"
+})
+
+local C = Y.Slider({
+    Text = "Walk Speed",
+    Callback = function(Value)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+    end,
+    Min = 0,
+    Max = 350,
+    Def = 16
+})
+
+local C = Y.Slider({
+    Text = "Jump Power",
+    Callback = function(Value)
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+    end,
+    Min = 0,
+    Max = 350,
+    Def = 50
+})
+
+local fasd = Y.Slider({
+    Text = "Set FPS Cap",
+    Callback = function(Value)
+        setfpscap(Value)
+    end,
+    
+    Min = 0,
+    Max = 240,
+    Def = 75,
+        Menu = {
+        Information = function(self)
+            X.Banner({
+                Text = "Changes the maximum FPS of the Roblox Client. Default = 60, 0 = Unlimited"
+            })
+        end
+    }
+
+})
+
+
+
+local A = Y.Button({
+    Text = "Headless",
+    Callback = function()
+             local lp = game:GetService "Players".LocalPlayer
+        if lp.Character:FindFirstChild "Head" then
+            local char = lp.Character
+            char.Archivable = true
+            local new = char:Clone()
+            new.Parent = workspace
+            lp.Character = new
+            wait(2)
+            local oldhum = char:FindFirstChildWhichIsA "Humanoid"
+            local newhum = oldhum:Clone()
+            newhum.Parent = char
+            newhum.RequiresNeck = false
+            oldhum.Parent = nil
+            wait(2)
+            lp.Character = char
+            new:Destroy()
+            wait(1)
+            newhum:GetPropertyChangedSignal("Health"):Connect(
+                function()
+                    if newhum.Health <= 0 then
+                        oldhum.Parent = lp.Character
+                        wait(1)
+                        oldhum:Destroy()
+                    end
+                end)
+            workspace.CurrentCamera.CameraSubject = char
+            if char:FindFirstChild "Animate" then
+                char.Animate.Disabled = true
+                wait(.1)
+                char.Animate.Disabled = false
+            end
+            lp.Character:FindFirstChild "Head":Destroy()
+        end
+    end,
+})
+
+local A = Y.Button({
+    Text = "Respawn",
+    Callback = function()
+            game.Players.LocalPlayer.Character.Humanoid.Name = 1
+        local l = game.Players.LocalPlayer.Character["1"]:Clone()
+        l.Parent = game.Players.LocalPlayer.Character
+        l.Name = "Humanoid"
+        wait()
+        game.Players.LocalPlayer.Character["1"]:Destroy()
+        game.Workspace.CurrentCamera.CameraSubject = game.Players.LocalPlayer.Character
+        game.Players.LocalPlayer.Character.Animate.Disabled = true
+        wait()
+        game.Players.LocalPlayer.Character.Animate.Disabled = false
+        game.Players.LocalPlayer.Character.Humanoid.DisplayDistanceType = "None"
+        wait()
+        local prt = Instance.new("Model", workspace);
+        Instance.new("Part", prt).Name="Torso";
+        Instance.new("Part", prt).Name="Head";
+        Instance.new("Humanoid", prt).Name="Humanoid";
+        game.Players.LocalPlayer.Character=prt
+    end,
+})
+
+local scripts = X.New({
+    Title = "Scripts"
+})
+
+local A = scripts.Button({
+    Text = "Backdoor.exe",
+    Callback = function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/iK4oS/backdoor.exe/master/source.lua'),true))()
+    end,
+
+       Menu = {
+        Information = function(self)
+            X.Banner({
+                Text = "Synapse Compatiblity for Script-Ware. Not known to work on any other exploits."
+            })
+        end
+    }
+
+})
+
+local A = scripts.Button({
+    Text = "Script-Ware to Synapse",
+    Callback = function()
+pcall(game.HttpGet,true,"zzerexx#3970 was here")
+loadstring(game:HttpGet("https://raw.githubusercontent.com/zzerexx/scripts/main/SynapseToScriptWare.lua", true))()
+    end,
+
+       Menu = {
+        Information = function(self)
+            X.Banner({
+                Text = "Synapse Compatiblity for Script-Ware. Not known to work on any other exploits."
+            })
+        end
+    }
+
+})
+
+local FPS = X.New({
+    Title = "FPS"
+})
+
+FPS.DataTable({
+    Text = "ESP",
+    Callback = function(ChipSet)
+        table.foreach(ChipSet, function(Option, Value)
+            if Option == "ESP" then
+            	if Value == true then
+            		getgenv().ESP51344 = true
+            		function WTS(part)
+local screen = workspace.CurrentCamera:WorldToViewportPoint(part.Position)
+return Vector2.new(screen.x, screen.y)
+end
+
+function ESPText(part, color)
+local name = Drawing.new("Text")
+name.Text = part.Parent.Name
+name.Position = WTS(part)
+name.Color = color
+name.Size = 20.0
+name.Outline = true
+name.Center = true
+name.Visible = true
+game:GetService("RunService").Stepped:connect(function()
+	if getgenv().ESP51344 == false then
+	name:Remove()
+end
+pcall(function()
+local destroyed = not part:IsDescendantOf(workspace)
+if destroyed and name ~= nil then
+name:Remove()
+end
+if part ~= nil then
+name.Position = WTS(part)
+end
+local _, screen = workspace.CurrentCamera:WorldToViewportPoint(part.Position)
+if screen then
+name.Visible = true
+else
+name.Visible = false
+end
+end)
+end)
+end
+
+local players = game.Players:getChildren()
+for i=1,#players do
+if players[i] ~= game.Players.LocalPlayer then
+if players[i].Character:FindFirstChild("Head") then
+if getgenv().teamcolor67231 == true then
+ESPText(players[i].Character.Head, players[i].TeamColor.Color)
+else
+ESPText(players[i].Character.Head, Color3.new(255/255,0/255,0/255))
+end
+end
+players[i].CharacterAdded:connect(function(char)
+local hrp = char:WaitForChild("Head")
+if getgenv().teamcolor67231 == true then
+ESPText(hrp, players[i].TeamColor.Color)
+else
+ESPText(hrp, Color3.new(255/255,0/255,0/255))
+end
+end)
+end
+end
+
+game.Players.PlayerAdded:Connect(function(plr)
+plr.CharacterAdded:connect(function(char)
+local hrp = char:WaitForChild("Head")
+if getgenv().teamcolor67231 == true then
+ESPText(hrp, plr.TeamColor.Color)
+else
+ESPText(hrp, Color3.new(255/255,0/255,0/255))
+end
+end)
+end)
+            		else
+            		  getgenv().ESP51344 = false
+				end
+			end
+			
+			
+
+			
+        end)
+    end,
+    Options = {
+        ESP = false
+    }
+
+})
+
+      Menu = {
+            X.Banner({
+                Text = "Successfully loaded Senseless Hub for Super Speed Simulator"
+            })
+    }
