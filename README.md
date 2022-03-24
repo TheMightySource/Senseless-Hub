@@ -1,6 +1,7 @@
 # Senseless Hub
 
 ## Script
+Open sourced project made by Phobia, mainly for autofarming simulators.
 ```lua
 getgenv().SenselessHub_Theme = "Dark" -- Light, Dark, Mocha, Aqua, Jester
 getgenv().SenselessHub_Style = 3	
