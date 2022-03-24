@@ -53,9 +53,11 @@ local fasd = Y.Slider({
 
 })
 
+local scripts = X.New({
+    Title = "Scripts"
+})
 
-
-local A = Y.Button({
+local A = scripts.Button({
     Text = "Headless",
     Callback = function()
              local lp = game:GetService "Players".LocalPlayer
@@ -94,7 +96,7 @@ local A = Y.Button({
     end,
 })
 
-local A = Y.Button({
+local A = scripts.Button({
     Text = "Respawn",
     Callback = function()
             game.Players.LocalPlayer.Character.Humanoid.Name = 1
@@ -117,9 +119,6 @@ local A = Y.Button({
     end,
 })
 
-local scripts = X.New({
-    Title = "Scripts"
-})
 
 local A = scripts.Button({
     Text = "Backdoor.exe",
@@ -250,6 +249,6 @@ end)
 
       Menu = {
             X.Banner({
-                Text = "Successfully loaded Senseless Hub for Super Speed Simulator"
+                Text = "Successfully loaded Senseless Hub"
             })
     }
